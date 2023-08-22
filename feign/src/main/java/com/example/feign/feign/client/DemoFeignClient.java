@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import static com.example.feign.common.consts.DemoConstant.CUSTOM_HEADER_NAME;
 
+/**
+ * DemoFeignClient는 target_server에 요청을 보내기 위한 FeignClient입니다.
+ */
 
 @FeignClient(
         name = "demo-client", // application.yaml에 설정해 놓은 값을 참조
@@ -23,7 +26,7 @@ public interface DemoFeignClient {
      * @param age : 나이
      * @return : 응답 정보
      */
-    @GetMapping("/get") // "${feign.url.prefix}/get"으로 요청
+    @GetMapping("/get") // callGet 함수를 호출하면 "${feign.url.prefix}/get"으로 요청
     ResponseEntity<BaseResponseInfo> callGet(@RequestHeader(CUSTOM_HEADER_NAME) String customHeader,
                                              @RequestParam("name") String name,
                                              @RequestParam("age") Long age);
@@ -34,7 +37,7 @@ public interface DemoFeignClient {
      * @param baseRequestInfo : 요청 정보
      * @return : 응답 정보
      */
-    @PostMapping("/post") // "${feign.url.prefix}/post"로 요청
+    @PostMapping("/post") // callPost 함수를 호출하면 "${feign.url.prefix}/post"로 요청
     ResponseEntity<BaseResponseInfo> callPost(@RequestHeader(CUSTOM_HEADER_NAME) String customHeader,
                                               @RequestBody BaseRequestInfo baseRequestInfo);
 

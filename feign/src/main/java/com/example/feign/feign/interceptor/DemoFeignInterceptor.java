@@ -8,9 +8,18 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.RequiredArgsConstructor;
 
+/**
+ *  Feign 클라이언트에 사용되는 요청 인터셉터입니다.
+ *  Feign 클라이언트의 HTTP 요청을 가로채고, 필요한 기능을 추가할 수 있습니다.
+ */
 
 @RequiredArgsConstructor(staticName = "of") // of라는 이름의 static 메서드를 만들어줘
 public class DemoFeignInterceptor implements RequestInterceptor {
+
+    /**
+     * apply는 Feign 클라이언트의 HTTP 요청을 가로챌 때 호출되는 메서드입니다.
+     * @param requestTemplate
+     */
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
@@ -25,10 +34,9 @@ public class DemoFeignInterceptor implements RequestInterceptor {
         String encodedRequestBody = StringUtils.toEncodedString(requestTemplate.body(), UTF_8); // requestTemplate.body()는 byte[] 타입이므로 String으로 변환
         System.out.println("[POST] [DemoFeignInterceptor] requestBody : " + encodedRequestBody);
 
+
         // 추가적으로 본인이 필요한 로직 추가하기
         String convertedRequestBody = encodedRequestBody;
         requestTemplate.body(convertedRequestBody);
-/*        String convertedRequestBody = encodedRequestBody.replace("CustomName", "ChangedName"); // requestBody를 변환하는 로직
-        requestTemplate.body(convertedRequestBody); // 변환된 requestBody로 다시 설정*/
     }
 }
