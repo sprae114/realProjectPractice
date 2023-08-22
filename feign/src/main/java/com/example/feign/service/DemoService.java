@@ -39,4 +39,9 @@ public class DemoService {
 
         return "post";
     }
+
+    public String errorDecoder() {
+        client.callErrorDecoder();
+        return "errorDecoder";
+    }
 }

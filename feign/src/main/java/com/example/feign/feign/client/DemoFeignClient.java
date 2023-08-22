@@ -37,4 +37,10 @@ public interface DemoFeignClient {
     @PostMapping("/post") // "${feign.url.prefix}/post"로 요청
     ResponseEntity<BaseResponseInfo> callPost(@RequestHeader(CUSTOM_HEADER_NAME) String customHeader,
                                               @RequestBody BaseRequestInfo baseRequestInfo);
+
+    /**
+     * 에러가 발생하는 메소드
+     */
+    @GetMapping("/errorDecoder")
+    ResponseEntity<BaseResponseInfo> callErrorDecoder();
 }

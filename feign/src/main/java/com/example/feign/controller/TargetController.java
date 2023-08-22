@@ -39,4 +39,9 @@ public class TargetController {
                 .age(body.getAge())
                 .build();
     }
+
+    @GetMapping("/errorDecoder")
+    public ResponseEntity<BaseResponseInfo> testErrorDecoder() {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 }

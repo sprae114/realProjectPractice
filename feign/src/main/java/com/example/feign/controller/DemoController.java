@@ -23,4 +23,9 @@ public class DemoController {
     public String postController() {
         return demoService.post();
     }
+
+    @GetMapping("/error")
+    public String errorDecoderController() {
+        return demoService.errorDecoder();
+    }
 }
