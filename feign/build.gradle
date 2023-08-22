@@ -44,6 +44,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign' // feign 의존성 추가
+
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	implementation 'org.apache.commons:commons-lang3:3.13.0' // commons-lang3 의존성 추가
 }
 
 tasks.named('test') {

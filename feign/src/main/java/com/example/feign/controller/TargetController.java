@@ -28,4 +28,15 @@ public class TargetController {
                 .age(age)
                 .build();
     }
+
+    @PostMapping("/post")
+    public BaseResponseInfo demoPost(@RequestHeader("CustomHeaderName") String header,
+                                     @RequestBody BaseRequestInfo body) {
+        return BaseResponseInfo
+                .builder()
+                .header(header)
+                .name(body.getName())
+                .age(body.getAge())
+                .build();
+    }
 }
