@@ -1,13 +1,13 @@
 feign:
   url:
-    prefix: http://localhost:8080/target_server  #DemoFeignClient?? ??? url prefix ?
+    prefix: http://localhost:8080/target_server  # DemoFeignClient에서 사용할 url prefix 값
   client:
     config:
       default:
-        connectTimeout: 1000  #?? ?? ??
-        readTimeout: 3000   #?? ?? ??
-        loggerLevel: NONE  # NONE, BASIC, HEADERS, FULL -> NONE?? ???? FeignCustomLogger?? ??? ?? ???.
-      demo-client:  # DemoFeignClient?? ??? Client ?? ?
-        connectTimeout: 1000  # ?? ?? ??
-        readTimeout: 10000  # ?? ?? ??
-        loggerLevel: HEADERS  # ??? ??? ?? FeignCustomLogger -> Logger.Level logLevel ??? ???
+        connectTimeout: 1000  # 연결 시간 초과 시간 설정
+        readTimeout: 3000   # 읽기 시간 초과 시간 설정
+        loggerLevel: NONE  # NONE, BASIC, HEADERS, FULL -> NONE으로 설정하면 FeignCustomLogger에서 로그를 찍지 않는다.
+      demo-client:  # DemoFeignClient에서 사용할 Client 설정 값
+        connectTimeout: 1000
+        readTimeout: 10000
+        loggerLevel: HEADERS   # 여기서 설정한 값은 FeignCustomLogger -> Logger.Level logLevel 변수에 할당됨

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import static com.example.feign.common.consts.DemoConstant.CUSTOM_HEADER_NAME;
 
+/**
+ * DemoFeignClient는 target_server에 요청을 보내기 위한 FeignClient입니다.
+ */
 
 @FeignClient(
         name = "demo-client", // application.yaml에 설정해 놓은 값을 참조

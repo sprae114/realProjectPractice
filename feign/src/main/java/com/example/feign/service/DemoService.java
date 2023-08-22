@@ -7,16 +7,20 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+/**
+ * DemoService는 FeignClient를 사용하기 위한 서비스입니다.
+ */
 @Service
 @RequiredArgsConstructor
 public class DemoService {
 
-    private final DemoFeignClient client;
+    private final DemoFeignClient client; // FeignClient를 주입받습니다.
+
 
     public String get() {
         ResponseEntity<BaseResponseInfo> response = client.callGet("CustomHeader",
                 "CustomName",
-                1L);
+                1L); // FeignClient를 통해 서버에 요청합니다.
 
         System.out.println("Name : " + response.getBody().getName());
         System.out.println("Age : " + response.getBody().getAge());
@@ -41,7 +45,7 @@ public class DemoService {
     }
 
     public String errorDecoder() {
-        client.callErrorDecoder();
+        client.callErrorDecoder(); // FeignClient를 통해 서버에 요청합니다.
         return "errorDecoder";
     }
 }
