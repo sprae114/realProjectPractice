@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EmailService {
 
-    @Async("defaultTaskExecutor")
+    @Async("defaultTaskExecutor") // defaultTaskExecutor 를 사용하도록 설정
     public void sendMail() {
         System.out.println("[sendMail] :: "
                 + Thread.currentThread().getName());
     }
 
-    @Async("messagingTaskExecutor")
+    @Async("messagingTaskExecutor") // messagingTaskExecutor 를 사용하도록 설정
     public void sendMailWithCustomThreadPool() {
         System.out.println("[sendMailWithCustomThreadPool] :: "
                 + Thread.currentThread().getName());

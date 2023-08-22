@@ -11,7 +11,7 @@ public class AsyncService {
     private final EmailService emailService;
 
     public void asyncCall_1() {
-        System.out.println("[asyncCall_1] :: " + Thread.currentThread().getName());
+        System.out.println("[asyncCall_1] :: " + Thread.currentThread().getName()); // 메인 스레드 이름 출력
         emailService.sendMail();
         emailService.sendMailWithCustomThreadPool();
     }
@@ -28,8 +28,7 @@ public class AsyncService {
         sendMail();
     }
 
-    @Async
-    public void sendMail() {
-        System.out.println("[sendMail] :: " + Thread.currentThread().getName());
+    @Async // @Async("defaultTaskExecutor") 와 동일
+    public void sendMail() {System.out.println("[sendMail] :: " + Thread.currentThread().getName());
     }
 }
